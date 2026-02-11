@@ -4,6 +4,7 @@ import RepoCard from "./components/RepoCard";
 import TechBadge from "./components/TechBadge";
 import MetricCard from "./components/MetricCard";
 import InsightList from "./components/InsightList";
+import { Robot } from "./components/ui/robot";
 
 export default function App() {
   const [repoUrl, setRepoUrl] = useState("");
@@ -46,16 +47,24 @@ export default function App() {
       <div className="container">
         {/* Header */}
         <header className="header fade-in">
-          <div className="badge">
-            <span className="badge-dot"></span>
-            <span>AI-Powered Repository Analysis</span>
+          <div className="header-content">
+            <div className="header-text">
+              <div className="badge">
+                <span className="badge-dot"></span>
+                <span>AI-Powered Repository Analysis</span>
+              </div>
+              <h1 className="title">
+                🔍 GitHub Repo Analyzer
+              </h1>
+              <p className="subtitle">
+                Instantly analyze any GitHub repository to uncover its tech stack, complexity metrics, and actionable insights
+              </p>
+            </div>
+            
+            <div className="header-robot">
+              <Robot />
+            </div>
           </div>
-          <h1 className="title">
-            🔍 GitHub Repo Analyzer
-          </h1>
-          <p className="subtitle">
-            Instantly analyze any GitHub repository to uncover its tech stack, complexity metrics, and actionable insights
-          </p>
         </header>
 
         {/* Input Section */}
@@ -89,7 +98,8 @@ export default function App() {
             </button>
           </div>
           {error && (
-            <div className="error">
+            <div className="error-message">
+              <span className="error-icon">⚠️</span>
               {error}
             </div>
           )}
